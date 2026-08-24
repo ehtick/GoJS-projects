@@ -21,7 +21,8 @@
   ]);
 </script>
 
-<div class="grid h-full w-full grid-cols-2 grid-rows-2 gap-1">
+<!-- below sm each view gets a fixed row height so the page scrolls in one column -->
+<div class="grid h-full w-full auto-rows-[20rem] grid-cols-1 gap-1 sm:grid-cols-2 sm:grid-rows-2">
   <!-- camera -->
   <ThreeCamera {model} bind:selection />
   <!-- top x/y -->

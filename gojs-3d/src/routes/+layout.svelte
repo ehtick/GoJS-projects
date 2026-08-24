@@ -1,7 +1,14 @@
 <script lang="ts">
   import '../app.css';
+  import '@fontsource-variable/inter';
   let { children } = $props();
 </script>
+
+<style>
+  :global(body) {
+    font-family: 'Inter Variable', sans-serif;
+  }
+</style>
 
 <!-- Northwoods google analytics - You can delete this block! -->
 <svelte:head>

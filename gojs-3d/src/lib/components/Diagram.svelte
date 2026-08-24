@@ -109,7 +109,10 @@
   });
 </script>
 
-<div class="h-full w-full bg-green-100 p-[1px]">
-  <span class="absolute z-20 bg-green-200 font-mono text-xs">{axis1}/{axis2}</span>
+<div class="h-full w-full bg-fp-border p-[1px] dark:bg-gray-700">
+  <span
+    class="absolute z-20 m-1 rounded border border-fp-border bg-fp-bg px-1.5 py-0.5 text-xs font-semibold text-fp-light-accent dark:border-gray-700 dark:bg-fp-bg-dark dark:text-white"
+    >{axis1}/{axis2}</span
+  >
   <div bind:this={diagramDiv} class="z-10 h-full w-full select-none"></div>
 </div>

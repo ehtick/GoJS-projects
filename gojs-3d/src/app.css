@@ -1,8 +1,18 @@
 @import 'tailwindcss';
 
+/* set dark theme by dark class on document body */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-fp-green: #6cc35b;
   --color-fp-beige: #fbfcf9;
+  --color-fp-bg: #fbfcf9;
+  --color-fp-bg-lightish: #ffffff;
+  --color-fp-light-accent: #131211;
+  --color-fp-bg-dark: #0f172a;
+  --color-fp-bg-darkened: #020617;
+  --color-fp-bg-darkish: #42557a;
+  --color-fp-border: #13121160;
 }
 
 /*
@@ -21,12 +31,23 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+
+  .dark {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+      border-color: var(--color-gray-700, currentColor);
+    }
+  }
 }
 
 @layer base {
   html,
   body {
     height: 100%;
+    @apply bg-fp-bg-lightish dark:bg-fp-bg-darkened;
   }
 
   h1 {
@@ -34,10 +55,10 @@
   }
 
   a {
-    @apply text-green-700 underline;
+    @apply text-sky-600 underline dark:text-sky-300;
   }
   a:hover {
-    @apply text-green-900;
+    @apply text-sky-800 dark:text-sky-500;
   }
 
   P {
@@ -55,5 +76,40 @@
   ol li::marker,
   ul li::marker {
     @apply text-fp-green;
+  }
+}
+
+/* Scroll bar customization, matching the floorplanner project */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border: 1px solid #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  border: 1.5px solid skyblue;
+}
+
+.dark {
+  ::-webkit-scrollbar-track {
+    @apply bg-fp-bg-dark;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-fp-bg-darkish;
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    border: 1.5px solid var(--color-fp-bg-darkish);
   }
 }
